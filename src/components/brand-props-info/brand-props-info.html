@@ -8,7 +8,15 @@
 </div>
 <div ng-if="!( 'site.showOnlyAvailableBrandPropsInSelectedVariant' | param )" class="tariff">
     <div class="tariff__include">
-        {{ 'web.choosenFlight.tariffProps' | aliasStatic}} {{ vm.brandName }}
+        <span>
+            {{ 'web.choosenFlight.tariffProps' | aliasStatic}} {{ vm.brandName }}
+        </span>
+
+        <span class="right">
+            <a href fancybox="popupRemark">
+                {{ 'web.choosenFlight.remarkLink' | aliasStatic}}
+            </a>
+        </span>
     </div>
     <div class="tariff__content">
         <span ng-repeat="prop in vm.brandAvailableProps" class="tariff__content__item">
