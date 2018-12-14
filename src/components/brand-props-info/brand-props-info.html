@@ -1,0 +1,32 @@
+<div ng-if="( 'site.showOnlyAvailableBrandPropsInSelectedVariant' | param )" class="tariff">
+    <div class="tariff__include">
+        {{ 'web.choosenFlight.tariffIncludeStart' | aliasStatic}} {{ vm.brandName }} {{ 'web.choosenFlight.tariffIncludeEnd' | aliasStatic}}
+    </div>
+    <div class="tariff__content">
+        <span ng-repeat="prop in vm.brandAvailableProps" class="tariff__content__item" ng-bind-html="prop"></span>
+    </div>
+</div>
+<div ng-if="!( 'site.showOnlyAvailableBrandPropsInSelectedVariant' | param )" class="tariff">
+    <div class="tariff__include">
+        {{ 'web.choosenFlight.tariffProps' | aliasStatic}} {{ vm.brandName }}
+    </div>
+    <div class="tariff__content">
+        <span ng-repeat="prop in vm.brandAvailableProps" class="tariff__content__item">
+            <i class="icon_check"></i>
+            <span ng-bind-html="prop"></span>
+        </span>
+    </div>
+    <div class="tariff__content">
+        <span ng-repeat="prop in vm.brandPaidProps" class="tariff__content__item">
+            <wrap ng-bind-html="{ ignoreEmptyValue: true, currency: vm.pricingVariant.currency } | price"></wrap>
+            <span ng-bind-html="prop"></span>
+        </span>
+    </div>
+    <div class="tariff__content">
+        <span ng-repeat="prop in vm.brandUnavailableProps" class="tariff__content__item">
+            <i class="icon_none"></i>
+            <span ng-bind-html="prop"></span>
+        </span>
+    </div>
+</div>
+

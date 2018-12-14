@@ -24,7 +24,7 @@
                     return url.replace('src/', '');
                 }
             }))
-            .pipe(concat("templates-izh.js"))
+            .pipe(concat("templates-uvt.js"))
             .pipe(uglify())
             .pipe(gulp.dest('build/'));
     });
