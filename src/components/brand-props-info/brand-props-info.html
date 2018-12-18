@@ -10,9 +10,10 @@
 </div>
 <div ng-if="!( 'site.showOnlyAvailableBrandPropsInSelectedVariant' | param )" class="tariff">
     <div class="tariff__include">
-        <span>
-            {{ 'web.choosenFlight.tariffProps' | aliasStatic}} {{ vm.brandName }}
-        </span>
+        <div class="tariff__include">
+            {{ 'web.choosenFlight.tariffIncludeStart' | aliasStatic}} {{ vm.brandName }} {{
+            'web.choosenFlight.tariffIncludeEnd' | aliasStatic}}
+        </div>
 
         <span class="right">
             <a href fancybox="popupRemark">
@@ -36,6 +37,9 @@
             </wrap>
 
             <span ng-bind-html="prop.name"></span>
+            <wrap ng-if="prop.code === 'carryon' || prop.code === 'luggage'">
+                <p class="tariff__prop-shortDesc">{{ 'web.selectedVariantPropDescription' | aliasStatic }} {{ prop.shortDesc }}</p>
+            </wrap>
         </span>
     </div>
 </div>
