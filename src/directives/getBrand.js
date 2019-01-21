@@ -17,21 +17,17 @@ function getBrandController($scope, backend) {
 
     backend.ready.then(function () {
         vm.brand = _.assign({}, getBrandByName(backend.getBrandConfig(), vm.brandName));
-
-        vm.brand.props = vm.brand.props.sort(function (a, b) {
-            switch (a.available) {
-                case 'yes':
-                    return -1;
-                case 'paid':
-                    return 1;
-                case 'no':
-                    return 1;
-                default:
-                    return 1;
-            }
-        }).slice();
     });
 
+}
+
+function isLuggageOrCarryon(prop) {
+    return (prop.code === 'luggage' || prop.code === 'carryon') ? 1 : 0;
+}
+
+function compareProps(prop1, prop2) {
+    var prop1Available = prop1.available;
+    var prop2Available = prop2.available;
 }
 
 function getBrandByName(brands, name) {
