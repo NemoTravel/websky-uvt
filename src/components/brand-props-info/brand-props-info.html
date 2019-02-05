@@ -37,10 +37,10 @@
             </wrap>
 
             <span ng-bind-html="prop.name"></span>
-            <!--<wrap ng-if="prop.code === 'carryon' || prop.code === 'luggage'">-->
-                <!--<br>-->
-                <!--<p class="tariff__prop-shortDesc">{{ 'web.selectedVariantPropDescription' | aliasStatic }} {{ prop.shortDesc }}</p>-->
-            <!--</wrap>-->
+            <wrap ng-if="prop.code === 'carryon' || prop.code === 'luggage'">
+                <br>
+                <p class="tariff__prop-shortDesc">{{ 'web.selectedVariantPropDescription' | aliasStatic }} {{ prop.shortDesc }}</p>
+            </wrap>
         </span>
     </div>
 </div>
