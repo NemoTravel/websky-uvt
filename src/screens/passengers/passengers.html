@@ -444,10 +444,7 @@
                     </tr>
                     <tr ng-if="passenger.type == 'ADULT' && (vm.passengersCheck.allowEmail || vm.passengersCheck.allowPhone)">
                       <td>
-                        <div class="inp" ng-if="vm.passengersCheck.allowPhone">
-                          <label class="inp-label">
-                            {{ 'web.passengersInfo.label.phone' | aliasStatic}}
-                          </label>
+                        <div class="inp inp-animate-outer" ng-if="vm.passengersCheck.allowPhone">
                           <error-message control="vm.passengerForms[passengerNumber].phone"
                                          format-alias="'web.messages.formatPhone'"
                                          touched="vm.submitTouched">
@@ -459,10 +456,15 @@
                                  phone-mask
                                  ng-required="vm.passengersCheck.requirePhone"
                                  ng-pattern="'customer.phoneRegexp' | param"
-                                 class="textInp"
+                                 class="textInp inp-animate-placeholder"
                                  error-highlight="{{vm.submitTouched}}"
                                  placeholder="{{ 'web.passengersInfo.phone' | aliasStatic}}"
                                  prevent-browser-suggestions/>
+                          <label class="inp-animate-label">
+                              <span>
+                                    {{ 'web.passengersInfo.phone' | aliasStatic}}
+                              </span>
+                          </label>
                         </div>
                       </td>
                       <td>
